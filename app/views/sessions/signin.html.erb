@@ -1,0 +1,37 @@
+<!-- <%= form_for @user, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name, "Select your name" %><br>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password, "Enter your password" %><br>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign In", class: "btn btn-primary" %>
+  </div>
+<% end %> -->
+
+
+
+<%= form_tag('/session', method: :post) do %>
+
+  <div class="form-group">
+    <%= label_tag(:name, "Your name:") %>
+    <!-- <%= text_field_tag(:name, nil, class: "form-control") %> -->
+    <%= select_tag 'name', options_for_select(@users.collect{ |u| [u.name, u.id] }) %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag(:password, "Your password:") %>
+    <%= password_field_tag(:password, nil, class: "form-control") %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag("Sign In") %>
+  </div>
+
+<% end %>
