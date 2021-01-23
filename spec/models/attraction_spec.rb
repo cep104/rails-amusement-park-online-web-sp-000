@@ -18,7 +18,6 @@ RSpec.describe Attraction, :type => :model do
   it "has many rides" do
     user = User.create(name: "Max Charles", password: "password")
     ride = Ride.create(user_id: user.id, attraction_id: attraction.id)
-    # binding.pry
     expect(attraction.rides.first).to eq(ride)
   end
 
