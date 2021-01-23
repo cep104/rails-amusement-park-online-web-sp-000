@@ -21,7 +21,7 @@
 
   <div class="form-group">
     <%= label_tag(:name, "Your name:") %>
-    <%= text_field_tag(:name, nil, class: "form-control") %>
+    <!-- <%= text_field_tag(:name, nil, class: "form-control") %> -->
     <%= select_tag 'name', options_for_select(@users.collect{ |u| [u.name, u.id] }) %>
   </div>
 
